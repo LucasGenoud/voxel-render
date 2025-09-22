@@ -1,0 +1,131 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #282c34;
+    color: #abb2bf;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbars on body */
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.editor-pane {
+    width: 40%;
+    padding: 20px;
+    background-color: #21252b;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Scroll if content overflows */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+.editor-pane h2 {
+    margin-top: 0;
+    color: #61afef;
+}
+
+.editor-pane p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+#editor-container {
+    flex-grow: 1; /* Take remaining space */
+    min-height: 200px; /* Ensure it has some height */
+    border: 1px solid #3a3f4b;
+    margin-bottom: 15px;
+    position: relative; /* For Monaco editor positioning if used */
+}
+
+#code-editor { /* Styling for textarea fallback */
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    border: none;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    padding: 10px;
+    resize: none;
+}
+
+.controls {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.controls label {
+    font-size: 0.9em;
+}
+
+.controls input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    background-color: #3a3f4b;
+    color: #abb2bf;
+    border: 1px solid #5c6370;
+    border-radius: 3px;
+}
+
+.controls button {
+    padding: 8px 15px;
+    background-color: #61afef;
+    color: #21252b;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.controls button:hover {
+    background-color: #5299d6;
+}
+
+.controls input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.error {
+    color: #e06c75;
+    background-color: rgba(224, 108, 117, 0.1);
+    border: 1px solid #e06c75;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    white-space: pre-wrap; /* Keep formatting for error messages */
+}
+
+.render-pane {
+    flex-grow: 1; /* Take remaining space */
+    position: relative; /* For canvas positioning */
+    background-color: #282c34; /* Match body or a slightly different shade */
+}
+
+#render-canvas {
+    display: block; /* Remove extra space below canvas */
+    width: 100%;
+    height: 100%;
+}
+
+/* In style.css, within .controls or as a new rule */
+.controls input[type="color"] {
+    width: 40px; /* Adjust as needed */
+    height: 25px; /* Adjust as needed */
+    padding: 2px;
+    border: 1px solid #5c6370;
+    border-radius: 3px;
+    background-color: #3a3f4b; /* Might not be visible depending on browser */
+    cursor: pointer;
+    vertical-align: middle; /* Align with labels/buttons */
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voxel Function Renderer</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- If using Monaco Editor, CDN links would go here -->
+    <!-- <link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs/editor/editor.main.css"> -->
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="editor-pane">
+        <h2>Voxel Visibility Function</h2>
+        <p>Write a function `isVisible(x, y, z, size, time)`.</p>
+        <p>It should return `true` if the voxel at `(x,y,z)` is visible.</p>
+        <p>
+          `x, y, z` are 0-indexed coordinates. `size` is the grid dimension
+          (e.g., 20).
+        </p>
+        <p>`time` is an animation parameter (starts at 0, increments).</p>
+        <div id="editor-container">
+          <!-- Monaco Editor will be mounted here, or use a textarea -->
+          <textarea id="code-editor"> </textarea>
+        </div>
+        <div class="controls">
+          <label for="grid-size">Grid Size:</label>
+          <input type="number" id="grid-size" value="20" min="5" max="50" />
+          <button id="run-button">Run Function</button>
+        </div>
+        <div id="error-message" class="error"></div>
+      </div>
+      <div class="render-pane">
+        <canvas id="render-canvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Three.js CDN -->
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"
+    ></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.156.1/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.156.1/examples/jsm/"
+        }
+      }
+    </script>
+
+    <!-- If using Monaco Editor -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs/loader.min.js"></script> -->
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
